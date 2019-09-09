@@ -8,6 +8,7 @@ Prerequisites
 2.	VGG-16 pre-trained model on ILSVC12 datasets, and save it in caffemodels directory.
 
 Installation
+
 Enter caffe directory and download the source codes.
     cd caffe/
 Modify Makefile.config and build Caffe with following commands:
@@ -16,6 +17,7 @@ Modify Makefile.config and build Caffe with following commands:
     make matcaffe
     
 Usage
+
 We only supply the code to train 32-bit SCADH on MIR Flickr dataset.
 We integrate train step and test step in a bash file train32.sh, please run it as follows:
     sudo./train32.sh [ROOT_FOLDER] [GPU_ID]
@@ -24,7 +26,9 @@ We integrate train step and test step in a bash file train32.sh, please run it a
     # e.g. sudo ./train32.sh ./flickr_25 1
     
 Citation
+
 If you find our approach useful in your research, please consider citing:
+
 @article{'SCADH',
     author   = {Hui Cui and Lei Zhu and Jingjing Li and Yang Yang and Liqiang Nie},
     journal  = {IEEE Transactions on Image Processing (TIP)}, 
