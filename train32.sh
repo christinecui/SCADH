@@ -55,24 +55,14 @@ else
     echo 'B32 Delete!'
 fi
 
-#rm -r ./analysis/32/binary-test.mat
-#rm -r ./analysis/32/binary-train.mat
-#rm -r ./analysis/32/feat-test.mat
-#rm -r ./analysis/32/feat-train.mat
-#rm -r ./data_from_DWDH/B_32*
-#rm -r ./fc7_features/traindata_32*.txt
+echo "extract fc7 features"
+cd fc7_features
+python extract_features32.py vgg_16 ../caffemodels/VGG_ILSVRC_16_layers.caffemodel ../$ROOT_FOLDER ../flickr_25/train_file_list.txt fc7 traindata_32
+cd ..
+echo "generate .mat file -> ./fc7_features/traindata_32.txt"
 
-# iteration 1
-#echo "iteration 1"
-#echo "extract fc7 features"
-#cd fc7_features
-#python extract_features32.py vgg_16 ../caffemodels/VGG_ILSVRC_16_layers.caffemodel ../$ROOT_FOLDER ../flickr_25/train_file_list.txt fc7 traindata_32
-#cd ..
-#echo "generate .mat file -> ./fc7_features/traindata_32.txt"
-
-#echo "update anchors by DWDH algorithm"
+echo "start DWDH algorithm"
 export PATH=$PATH:/usr/local/MATLAB/R2016b/bin
-
 matlab -nojvm -nodesktop -r "run ./DWDH/DWDH_32.m; quit;"
 echo "generate .h5 file -> ./data_from_DWDH/B_32bits.h5"
 
