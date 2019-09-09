@@ -14,21 +14,33 @@ The paper has been received by IEEE Transactions on Image Processing, doi: 10.11
 ·Installation
 
 Enter caffe directory and download the source codes.
+
     cd caffe/
+    
 Modify Makefile.config and build Caffe with following commands:
+
     make all -j8
+    
     make pycaffe
+    
     make matcaffe
+    
     
     
 ·Usage
 
 We only supply the code to train 32-bit SCADH on MIR Flickr dataset.
+
 We integrate train step and test step in a bash file train32.sh, please run it as follows:
+
     sudo./train32.sh [ROOT_FOLDER] [GPU_ID]
+    
     # ROOT_FOLDER is the root folder of image datasets,
+    
     # GPU_ID is the GPU you want to train on,
+    
     # e.g. sudo ./train32.sh ./flickr_25 1
+    
   
   
 ·Citation
