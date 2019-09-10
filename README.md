@@ -57,7 +57,7 @@ If you find our approach useful in your research, please consider citing:
     
     title    = {Scalable Deep Hashing for Large-scale Social Image Retrieval},
     
-    doi      = {10.1109/TIP.2019.2940693}
+    doi      = {10.1109/TIP.2019.2940693},
     
     year     = {2019}
     
