@@ -40,18 +40,6 @@ fprintf('---------------------------------------\n');
 
 %% parameters set
 nMaxIter = 100; 
-
-% test 5
-% n_anchors = 500;
-% s = 3;
-% mu = 0.1;
-% pho=1.1; 
-% lambda1 = 0.01; 
-% lambda2 = 0.001; 
-% lambda3 = 0.1;
-% lambda6 = 100;
-
-% test 6
 n_anchors = 500;
 s = 3;
 mu = 1;
@@ -68,7 +56,6 @@ if ~use_kmeans
      anchor = traindata(randsample(n, n_anchors),:);
 else
     fprintf('K-means clustering to get m anchor points\n');
-    %[~, anchor] = litekmeans(traindata, n_anchors, 'MaxIter', 30);
     [~,anchor] = litekmeans(traindata ,n_anchors,'MaxIter',5,'Replicates',1);
     fprintf('anchor points have been selected!\n');
     fprintf('---------------------------------------\n');
@@ -129,11 +116,7 @@ while i < nMaxIter
 
     %% W1 c*nbit
     tempW1 = lambda2*(Y'*Y) + lambda3*eye(c);  
-    W1 = lambda2*(tempW1\(Y'*B)); 
-    
-%    %% W2 d*nbit
-%    tempW2 = lambda4*(X'*X) + lambda5*eye(d);  
-%    W2 = lambda4*(tempW2\(X'*B)); 
+    W1 = lambda2*(tempW1\(Y'*B));
 
     %% update Y
     tempY = lambda2*(W1*W1') + 2*mu*eye(c);
@@ -159,8 +142,7 @@ while i < nMaxIter
     %% C
     C = (1/mu) * (mu*B + Gamma3 -lambda6*B + lambda6*Z*lambda*(Z'*B));
     
-    %% B
-    %B = sign(lambda2*Y*W1 + lambda4*X*W2 - lambda6*C + lambda6*Z*lambda*(Z'*C) + mu*C - Gamma3);         
+    %% B 
     B = sign(lambda2*Y*W1 - lambda6*C + lambda6*Z*lambda*(Z'*C) + mu*C - Gamma3);    
    
     %% 
@@ -178,19 +160,11 @@ while i < nMaxIter
     Temp3 = B-Y*W1;     
     Temp3 = (lambda2 / 2) * trace(Temp3'*Temp3);
     % 4 
-    Temp4 = (lambda3 / 2) * trace(W1'*W1);
-%    % 5
-%    Temp5 = B-X*W2;
-%    Temp5 = (lambda4 / 2) *trace(Temp5'*Temp5);    
-%    
-%    % 6
-%    Temp6 = (lambda5 / 2)*trace(W2'*W2);
-    
+    Temp4 = (lambda3 / 2) * trace(W1'*W1);   
     % 7
     Temp7 = lambda6*trace(B'*B-B'*Z*lambda*(Z'*B));
     
     % total  
-    %loss = Temp1 + Temp2 + Temp3 + Temp4 + Temp5 + Temp6 + Temp7;
     loss = Temp1 + Temp2 + Temp3 + Temp4 + Temp7;
 
     res = (loss - loss_old)/loss_old;
