@@ -49,7 +49,7 @@ We integrate train step and test step in a bash file train32.sh, please run it a
 
 If you find our approach useful in your research, please consider citing:
 
-@article{'SCADH',
+    @article{'SCADH',
 
     author   = {Hui Cui and Lei Zhu and Jingjing Li and Yang Yang and Liqiang Nie},
     
