@@ -1,5 +1,5 @@
 # SCADH
-**Scalable Deep Hashing for Large-scale Social Image Retrieval**
+**Scalable Deep Hashing for Large-Scale Social Image Retrieval**
 
 Hui Cui, Lei Zhu, Jingjing Li, Yang Yang, Liqiang Nie
 
@@ -9,7 +9,7 @@ url: https://doi.org/10.1109/TIP.2019.2940693
 
 
 **Prerequisites**
-1.	Requirements for Caffe, pycaffe and matcaffe.
+1.	Requirements for Caffe, Pycaffe and Matcaffe.
 2.	VGG-16 pre-trained model on ILSVC12 datasets, and save it in caffemodels directory.
 
 
@@ -59,7 +59,7 @@ If you find our approach useful in your research, please consider citing:
     
     volume   = {29},
     
-    pages    = {1271-1284}
+    pages    = {1271-1284},
     
     year     = {2020}
     
