@@ -3,9 +3,9 @@
 
 Hui Cui, Lei Zhu, Jingjing Li, Yang Yang, Liqiang Nie
 
-The paper has been received by IEEE Transactions on Image Processing.
+The paper has been published by IEEE Transactions on Image Processing.
 
-doi: 10.1109/TIP.2019.2940693.
+url: https://doi.org/10.1109/TIP.2019.2940693
 
 
 **Prerequisites**
@@ -57,11 +57,10 @@ If you find our approach useful in your research, please consider citing:
     
     title    = {Scalable Deep Hashing for Large-scale Social Image Retrieval},
     
-    doi      = {10.1109/TIP.2019.2940693},
+    volume   = {29},
     
-    year     = {2019}
+    pages    = {1271-1284}
+    
+    year     = {2020}
     
 }
-
-
-
